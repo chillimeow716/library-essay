@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小論文寫作比賽教學專區</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF3E3; --ink:#1E2A4A; --teal:#1C7A6B; --indigo:#2A4B9B;
+    --coral:#FF6B47; --mustard:#F3B23D;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--paper);
+    background-image:radial-gradient(circle at 15% 10%, rgba(255,138,61,.12) 0, transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(28,122,107,.12) 0, transparent 45%);
+    font-family:"Noto Serif TC", serif; color:var(--ink); padding:32px;
+  }
+  .wrap{max-width:720px; width:100%; text-align:center;}
+  h1{font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:clamp(1.6rem,5vw,2.4rem); margin:0 0 10px;}
+  p.sub{color:#556; margin:0 0 40px; font-size:1rem;}
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:600px){.cards{grid-template-columns:1fr;}}
+  a.card{
+    display:block; text-align:left; text-decoration:none; color:var(--ink);
+    background:#FFFDF7; border:2px solid var(--ink); border-radius:14px; padding:24px;
+    box-shadow:5px 5px 0 rgba(30,42,74,.12); transition:transform .15s;
+  }
+  a.card:hover{transform:translateY(-4px);}
+  a.card .icon{font-size:1.8rem;}
+  a.card h2{font-family:"Noto Sans TC",sans-serif; font-size:1.1rem; margin:10px 0 6px;}
+  a.card p{font-family:"Noto Sans TC",sans-serif; font-size:.85rem; color:#5c6a72; margin:0;}
+  a.card.a{border-color:var(--teal);}
+  a.card.b{border-color:var(--indigo);}
+  footer{margin-top:40px; font-family:"Noto Sans TC",sans-serif; font-size:.78rem; color:#8a92a6;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>📚 小論文寫作比賽教學專區</h1>
+    <p class="sub">兩份互動教學頁面，幫助你熟悉投稿規則與引註格式。</p>
+    <div class="cards">
+      <a class="card a" href="小論文引註格式教學.html">
+        <div class="icon">📖</div>
+        <h2>引註小教室</h2>
+        <p>內文引註、參考文獻格式、互動測驗與練習。</p>
+      </a>
+      <a class="card b" href="小論文比賽實施計畫攻略.html">
+        <div class="icon">🗺️</div>
+        <h2>投稿全攻略</h2>
+        <p>比賽資格、投稿時程、評審流程、獎勵與注意事項。</p>
+      </a>
+    </div>
+    <footer>依 115 學年度全國高級中等學校小論文寫作比賽相關文件整理製作</footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>引註小教室｜小論文寫作比賽格式指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF3E3;
+    --card:#FFFDF7;
+    --ink:#1F3B45;
+    --teal:#1C7A6B;
+    --teal-deep:#125349;
+    --coral:#FF6B47;
+    --mustard:#F3B23D;
+    --rose:#E8546B;
+    --rule:#D8C9A8;
+    --radius-card:6px;
+    --radius-note:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(31,59,69,0.045) 28px);
+    color:var(--ink);
+    font-family:"Noto Serif TC", serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:"Noto Sans TC", sans-serif;
+    font-weight:900;
+    letter-spacing:.02em;
+    margin:0;
+  }
+  p{margin:0 0 1em 0;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+  a{color:var(--teal-deep);}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,243,227,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--ink);
+  }
+  .navrow{
+    max-width:880px; margin:0 auto; padding:10px 24px;
+    display:flex; align-items:center; gap:6px; overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .navrow::-webkit-scrollbar{display:none;}
+  .navtag{
+    font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:.82rem;
+    color:var(--ink); background:transparent; border:1.5px solid var(--ink);
+    border-radius:999px; padding:6px 14px; white-space:nowrap; cursor:pointer;
+    transition:background .15s, color .15s, transform .1s;
+  }
+  .navtag:hover{background:var(--ink); color:var(--paper);}
+  .navtag:active{transform:scale(.95);}
+  .navbrand{font-weight:900; font-size:1rem; margin-right:10px; white-space:nowrap; color:var(--teal-deep);}
+
+  /* ===== HERO ===== */
+  header.hero{
+    padding:76px 24px 64px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .stamp{
+    display:inline-block;
+    font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:.85rem;
+    color:var(--teal-deep); border:2px solid var(--teal-deep);
+    border-radius:999px; padding:5px 16px; margin-bottom:22px;
+    transform:rotate(-2deg);
+  }
+  h1.title{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    line-height:1.25;
+    color:var(--ink);
+  }
+  h1.title .hi{color:var(--coral);}
+  .subtitle{
+    font-family:"Noto Serif TC", serif; font-size:1.05rem; color:#4b6068;
+    max-width:520px; margin:20px auto 0;
+  }
+  .hero-tape{
+    position:absolute; width:110px; height:34px; background:var(--mustard);
+    opacity:.85; box-shadow:0 2px 4px rgba(0,0,0,.15);
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:56px 0;}
+  .eyebrow-line{
+    display:flex; align-items:center; gap:14px; margin-bottom:30px;
+  }
+  .eyebrow-line .num{
+    font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:1.6rem;
+    color:var(--paper); background:var(--teal); width:44px; height:44px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .eyebrow-line h2{font-size:1.5rem; color:var(--ink);}
+  .lead{font-size:1.02rem; color:#3c525a; max-width:640px;}
+
+  /* index card */
+  .card{
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:var(--radius-card);
+    padding:22px 24px;
+    box-shadow:4px 4px 0 rgba(31,59,69,.12);
+  }
+  .card + .card{margin-top:18px;}
+
+  /* sticky note callout */
+  .note{
+    background:var(--mustard);
+    border-radius:var(--radius-note);
+    padding:18px 20px;
+    box-shadow:3px 4px 8px rgba(0,0,0,.15);
+    transform:rotate(-.6deg);
+    font-family:"Noto Sans TC",sans-serif;
+    font-weight:500;
+    font-size:.95rem;
+    color:var(--ink);
+  }
+  .note.rose{background:#FBD3DA; transform:rotate(.7deg);}
+  .note strong{color:var(--rose); font-weight:900;}
+
+  /* rule pill */
+  .rulebar{
+    font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:.78rem;
+    color:var(--teal-deep); background:#E4F0EC; border:1px solid var(--teal);
+    display:inline-block; padding:3px 12px; border-radius:999px; margin-bottom:10px;
+  }
+
+  /* ===== TABS (內文引註) ===== */
+  .tabbar{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+  .tabbtn{
+    font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:.88rem;
+    padding:9px 16px; border-radius:var(--radius-card) var(--radius-card) 0 0;
+    border:1.5px solid var(--ink); border-bottom:none;
+    background:#EFE4C8; color:var(--ink); cursor:pointer;
+  }
+  .tabbtn.active{background:var(--card); color:var(--teal-deep);}
+  .tabpanel{display:none; border:1.5px solid var(--ink); border-radius:0 var(--radius-card) var(--radius-card) var(--radius-card); background:var(--card); padding:20px 22px;}
+  .tabpanel.active{display:block;}
+  .example{
+    font-family:"Noto Serif TC",serif; background:#F3EEDD; border-left:4px solid var(--coral);
+    padding:10px 16px; margin-top:10px; font-size:.96rem;
+  }
+  .example b{color:var(--teal-deep);}
+
+  /* ===== ACCORDION (參考文獻) ===== */
+  .acc-item{border:1.5px solid var(--ink); border-radius:var(--radius-card); margin-bottom:12px; overflow:hidden; background:var(--card);}
+  .acc-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:15px 20px; cursor:pointer; font-family:"Noto Sans TC",sans-serif; font-weight:700;
+    background:var(--card);
+  }
+  .acc-head .plus{
+    font-size:1.3rem; color:var(--coral); transition:transform .25s; flex-shrink:0; margin-left:12px;
+  }
+  .acc-item.open .plus{transform:rotate(45deg);}
+  .acc-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .acc-body-inner{padding:0 20px 18px; font-size:.95rem;}
+  .acc-body-inner .example{margin-top:8px;}
+
+  /* ===== QUIZ ===== */
+  .quiz-card{background:var(--card); border:1.5px solid var(--ink); border-radius:var(--radius-card); padding:24px; box-shadow:4px 4px 0 rgba(31,59,69,.12);}
+  .quiz-progress{font-family:"Noto Sans TC",sans-serif; font-size:.8rem; font-weight:700; color:var(--teal-deep); margin-bottom:10px;}
+  .quiz-q{font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:16px;}
+  .quiz-opts{display:flex; flex-direction:column; gap:10px;}
+  .quiz-opt{
+    text-align:left; font-family:"Noto Serif TC",serif; font-size:.95rem;
+    border:1.5px solid var(--ink); border-radius:var(--radius-card); background:var(--card);
+    padding:12px 16px; cursor:pointer; transition:background .15s, transform .1s;
+  }
+  .quiz-opt:hover{background:#F3EEDD;}
+  .quiz-opt.correct{background:#DCEFE3; border-color:var(--teal); color:var(--teal-deep); font-weight:700;}
+  .quiz-opt.wrong{background:#FBD9DE; border-color:var(--rose); color:var(--rose); font-weight:700;}
+  .quiz-fb{margin-top:14px; font-size:.92rem; display:none; font-family:"Noto Sans TC",sans-serif;}
+  .quiz-next{
+    margin-top:16px; display:none; font-family:"Noto Sans TC",sans-serif; font-weight:700;
+    background:var(--ink); color:var(--paper); border:none; border-radius:999px;
+    padding:9px 22px; cursor:pointer; font-size:.88rem;
+  }
+  .quiz-score{display:none; text-align:center;}
+  .quiz-score .big{font-size:2.6rem; font-weight:900; color:var(--coral); font-family:"Noto Sans TC",sans-serif;}
+  .retry-btn{
+    margin-top:14px; font-family:"Noto Sans TC",sans-serif; font-weight:700;
+    background:transparent; border:1.5px solid var(--ink); border-radius:999px;
+    padding:8px 20px; cursor:pointer;
+  }
+
+  /* ===== CHECKLIST 常見扣分/淘汰 ===== */
+  .checklist{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  .checklist li{
+    display:flex; gap:12px; align-items:flex-start; background:var(--card);
+    border:1.5px solid var(--ink); border-radius:var(--radius-card); padding:12px 16px; font-size:.93rem;
+    cursor:pointer; user-select:none;
+  }
+  .checklist li .box{
+    flex-shrink:0; width:22px; height:22px; border:2px solid var(--ink); border-radius:4px;
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+    font-size:.85rem; font-weight:900; color:var(--paper);
+  }
+  .checklist li.checked .box{background:var(--rose); border-color:var(--rose);}
+  .checklist li.checked{opacity:.55; text-decoration:line-through;}
+
+  /* ===== highlight practice ===== */
+  .practice-text{font-size:1rem; padding:6px 0;}
+  .practice-text span.word{cursor:pointer; padding:1px 2px; border-radius:2px; transition:background .15s;}
+  .practice-text span.word:hover{background:#F3EEDD;}
+  .practice-text span.word.hl{background:var(--mustard); font-weight:700;}
+
+  /* footer */
+  footer{
+    background:var(--ink); color:var(--paper); text-align:center; padding:44px 24px 56px;
+    font-family:"Noto Sans TC",sans-serif;
+  }
+  footer .fbrand{font-weight:900; font-size:1.1rem; margin-bottom:10px; color:var(--mustard);}
+  footer p{color:#B9CBCF; font-size:.85rem; max-width:480px; margin:0 auto;}
+  .soundtoggle{
+    position:fixed; bottom:18px; right:18px; z-index:60;
+    background:var(--ink); color:var(--paper); border:none; border-radius:999px;
+    width:52px; height:52px; font-size:1.3rem; cursor:pointer; box-shadow:3px 3px 0 rgba(0,0,0,.25);
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:56px 18px 46px;}
+    section{padding:40px 0;}
+    .eyebrow-line h2{font-size:1.2rem;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <span class="navbrand">📚 引註小教室</span>
+    <button class="navtag" onclick="jump('why')">為什麼要引註</button>
+    <button class="navtag" onclick="jump('intext')">內文引註</button>
+    <button class="navtag" onclick="jump('refs')">參考文獻格式</button>
+    <button class="navtag" onclick="jump('practice')">小練習</button>
+    <button class="navtag" onclick="jump('quiz')">測驗</button>
+    <button class="navtag" onclick="jump('pitfalls')">常見扣分</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-tape" style="top:20px; left:8%; transform:rotate(-8deg);"></div>
+  <div class="hero-tape" style="top:60px; right:6%; transform:rotate(10deg); background:var(--coral); opacity:.7;"></div>
+  <div class="stamp">全國高中小論文寫作比賽・格式指南</div>
+  <h1 class="title">把別人的話說清楚，<br>是<span class="hi">你自己</span>的本事。</h1>
+  <p class="subtitle">寫小論文最怕兩件事：不知道怎麼引用別人的資料，還有引用了卻忘記說清楚出處。這個頁面用最簡單的方式，帶你搞懂引註與參考文獻的每一個細節。</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 01 為什麼要引註 -->
+  <section id="why">
+    <div class="eyebrow-line"><div class="num">1</div><h2>為什麼一定要引註？</h2></div>
+    <p class="lead">小論文寫作的重點不是「你懂多少」，而是「你能不能找到證據，並且誠實說出證據從哪裡來」。引註做得好，代表你真的讀過資料、消化過內容；引註做不好，就算內容再精彩，也可能被判定為抄襲或直接淘汰。</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px;" id="why-grid">
+      <div class="note">
+        <strong>言之有據</strong><br>
+        每一段論述都要有文獻支撐。內文有提到的資料，一定要在文末「參考文獻」列出來，讓別人能夠查證。
+      </div>
+      <div class="note rose">
+        <strong>誠實原則</strong><br>
+        切結書要求你保證「絕無抄襲、未使用任何 AI 工具生成」。AI 可以幫你發想主題，但文章內容、摘要、改寫、圖表都必須是你自己寫的。
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="rulebar">投稿前先檢查</div>
+      <p style="margin-bottom:0;">參考文獻至少要有 <b>3 篇有效文獻</b>，而且不能全部都是網路資源。<b>嚴禁引用論壇、問答或聊天網站</b>；引用維基百科時，建議去找它引用的原始文獻，而不是直接引用維基百科的文字內容。</p>
+    </div>
+  </section>
+
+  <!-- 02 內文引註 -->
+  <section id="intext">
+    <div class="eyebrow-line"><div class="num">2</div><h2>內文引註怎麼寫？</h2></div>
+    <p class="lead">在文章「當下」提到某個資料時，要立刻標明「作者（年代）」。點選下方分類，看看不同情況該怎麼寫。</p>
+
+    <div class="tabbar" id="tabbar">
+      <button class="tabbtn active" data-tab="t1">中文文獻</button>
+      <button class="tabbtn" data-tab="t2">英文文獻</button>
+      <button class="tabbtn" data-tab="t3">機構作者</button>
+      <button class="tabbtn" data-tab="t4">訪談資料</button>
+      <button class="tabbtn" data-tab="t5">間接引用</button>
+      <button class="tabbtn" data-tab="t6">圖表引用</button>
+    </div>
+
+    <div class="tabpanel active" id="t1">
+      <p>格式：<b>姓名（出版或發表年代）</b> 或 <b>（姓名，出版或發表年代）</b>。作者三人以上，只列第一位，其餘用「等」代替。</p>
+      <div class="example">吳清山（2001）指出……　／　……（吳清山，2001）</div>
+      <div class="example">張清濱（2005）指出「教育視導乃是教育行政人員藉由視察與輔導的歷程，督促學校貫徹教育政策與措施。」<br><b>→ 直接引用原文要用「」標明，且同一處引用原文不得超過 50 字。</b></div>
+    </div>
+    <div class="tabpanel" id="t2">
+      <p>格式：<b>姓氏（出版或發表年代）</b> 或 <b>（姓氏, 出版或發表年代）</b>。作者三人以上，只列第一位，其餘以「et al.」表示。</p>
+      <div class="example">Porter (2001) 指出……　／　……(Porter, 2001)</div>
+    </div>
+    <div class="tabpanel" id="t3">
+      <p>作者是機構或團體時，第一次出現要寫全稱；如果之後會重複引用，可以在全稱後面用方括號帶出簡稱，之後就可以只寫簡稱（但「參考文獻」段仍要列出全稱）。</p>
+      <div class="example">第一次：衛生福利部疾病管制署（〔疾管署〕，2020）指出……<br>第二次以後：疾管署（2020）指出……</div>
+    </div>
+    <div class="tabpanel" id="t4">
+      <p>訪談資料的格式是：<b>（受訪者代碼，訪談時間）</b>。訪談內容只需要在內文標明，可以不放進「參考文獻」清單。</p>
+      <div class="example">（訪談A，2023年5月1日）</div>
+    </div>
+    <div class="tabpanel" id="t5">
+      <p>如果你不是照抄原文，而是用自己的話「改寫」別人的意思，同樣要標明出處，但<b>不需要加「」引號，也不用粗體</b>。</p>
+      <div class="example">許多研究者主張，圖書館利用教育有助於提升學生的自學能力（王小明，2019）。<span style="color:var(--rose); font-weight:700;">← 這是間接引用，沒有加引號</span></div>
+    </div>
+    <div class="tabpanel" id="t6">
+      <p>圖表的編號與標題放在圖表<b>上方靠左</b>。如果圖表是引用來的，資料來源要放在圖表<b>下方</b>，寫法與「參考文獻」相同；如果圖表是你自己做的，要註明「研究者自行繪製」。</p>
+      <div class="example">表下方：資料來源：教育部（2020）。<br>自製圖表：資料來源：研究者自行繪製。</div>
+    </div>
+  </section>
+
+  <!-- 03 參考文獻格式 -->
+  <section id="refs">
+    <div class="eyebrow-line"><div class="num">3</div><h2>參考文獻要怎麼列？</h2></div>
+    <p class="lead">文末「陸、參考文獻」要把內文引用過的所有資料，依照固定格式列出來。點開每一類，看範例怎麼寫。</p>
+
+    <div id="accordion">
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">📘 書籍類 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>中文：作者（出版年）。書名。出版者。</p>
+          <div class="example">張春興（2001）。教育心理學（修訂版）。東華書局。</div>
+          <p>英文：Author. (Date). Book title. Publisher.</p>
+          <div class="example">Klausmeier, H. J. (1985). Educational psychology. Harper & Row.</div>
+          <p>電子書：作者（年代）。書名。網址</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">📰 期刊論文類 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>作者（出版年）。論文篇名。期刊名，卷（期），起訖頁碼。</p>
+          <div class="example">林生傳（1994）。實習教師的困擾問題與輔導之研究。教育學刊，10，33-103。</div>
+          <p><b>小提醒：</b>有卷有期的中文期刊，卷數要用粗體；英文期刊卷數用斜體。</p>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">📖 文集論文類 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>作者（出版年）。篇名。載於主編名（主編）：文集名（起訖頁碼）。出版者。</p>
+          <div class="example">王家通（2000）。論教育機會的均等與公平。載於國立高雄師範大學教育學系（主編）：教育基本法相關議題研討會會議手冊（63-77頁）。國立高雄師範大學教育學系。</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">🎓 博（碩）士論文 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>作者（出版年）。篇名。學校研究所所名：碩（博）士論文。</p>
+          <div class="example">鄒慧英（1989）。高中男女分校與其學校性別角色、成就動機之關係。國立高雄師範大學教育研究所：碩士論文。</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">🗞️ 報紙文章 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>紙本：作者（年月日）。篇名。報紙名，版次。</p>
+          <p>電子：作者（年月日）。篇名。報紙網站名稱。網址</p>
+          <div class="example">李家同（2021年1月26日）。科技．人文聯合講座／素養不該和入學制度掛勾。聯合新聞網。</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">⚖️ 法規 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>法律名稱（最新修正日期）。</p>
+          <div class="example">師資培育法（2000年12月18日）。</div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)">💻 網路相關資源 <span class="plus">＋</span></div>
+        <div class="acc-body"><div class="acc-body-inner">
+          <p>有作者篇名：作者（登載年月日）。文章名稱。網址</p>
+          <div class="example">詹益鑑（2016年8月8日）。Uber在臺灣到底挑戰了什麼？。https://...</div>
+          <p>YouTube：名稱（登載年月日）。標題［影片］。YouTube。網址</p>
+          <p>Facebook／部落格：名稱（登載年月日）。標題［類型］。網址</p>
+          <div class="example" style="border-left-color:var(--rose);">⚠️ 提醒：這一類全部屬於「網路相關資源」，參考文獻不能全部來自這一類，至少要有 3 篇有效文獻，且不能全部都是網路資源。</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 小練習：標出引用 -->
+  <section id="practice">
+    <div class="eyebrow-line"><div class="num">4</div><h2>小練習：找出這段話裡的引用</h2></div>
+    <p class="lead">下面這段文字混合了「直接引用」和「間接引用」。點一下句子，猜猜看哪一句是「直接引用（有加引號、要標粗體）」？</p>
+    <div class="card">
+      <p class="practice-text" id="practice-text">
+        <span class="word" data-type="normal">研究者指出，圖書館利用教育對高中生的自學能力有正向影響（王小明，2019）。</span>
+        <span class="word" data-type="direct">張清濱（2005）指出「教育視導乃是教育行政人員藉由視察與輔導的歷程，督促學校貫徹教育政策與措施。」</span>
+        <span class="word" data-type="normal">換句話說，透過持續的觀察與輔導，學校才能真正落實教育政策（張清濱，2005）。</span>
+      </p>
+      <p id="practice-fb" style="display:none; font-family:'Noto Sans TC',sans-serif; font-weight:700; margin-top:10px;"></p>
+    </div>
+  </section>
+
+  <!-- 05 測驗 -->
+  <section id="quiz">
+    <div class="eyebrow-line"><div class="num">5</div><h2>測驗一下：你學會了嗎？</h2></div>
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-progress" id="quizProgress">第 1 / 5 題</div>
+      <div class="quiz-q" id="quizQ"></div>
+      <div class="quiz-opts" id="quizOpts"></div>
+      <div class="quiz-fb" id="quizFb"></div>
+      <button class="quiz-next" id="quizNext" onclick="nextQ()">下一題 →</button>
+      <div class="quiz-score" id="quizScore">
+        <div class="big" id="scoreNum"></div>
+        <p id="scoreMsg"></p>
+        <button class="retry-btn" onclick="startQuiz()">再測一次</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 常見扣分/淘汰 -->
+  <section id="pitfalls">
+    <div class="eyebrow-line"><div class="num">6</div><h2>投稿前，勾選確認！</h2></div>
+    <p class="lead">以下任一項發生，作品可能直接被淘汰或扣分。點一下已經檢查過的項目。</p>
+    <ul class="checklist" id="checklist">
+      <li><span class="box"></span>篇幅是否落在 4～10 頁之間（含附錄）？</li>
+      <li><span class="box"></span>是否依「壹～陸」六大架構、按順序書寫？</li>
+      <li><span class="box"></span>參考文獻是否至少 3 篇，且非全部來自網路資源？</li>
+      <li><span class="box"></span>是否完全沒有使用 AI 工具生成內容（含摘要、改寫、圖表）？</li>
+      <li><span class="box"></span>同一處直接引用原文是否都在 50 字以內？</li>
+      <li><span class="box"></span>題目、內文、附錄是否都沒有出現能辨識作者身分的資料？</li>
+      <li><span class="box"></span>每一頁是否都有加上小論文篇名（頁首）與頁碼（頁尾）？</li>
+      <li><span class="box"></span>是否完全沒有引用論壇、問答網站，或維基百科的文字內容？</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <div class="fbrand">📚 引註小教室</div>
+  <p>整理自「全國高級中等學校小論文寫作比賽引註及參考文獻格式範例」與「格式說明暨評審要點」，幫助同學快速掌握投稿前該注意的每個細節。祝寫作順利！</p>
+</footer>
+
+<button class="soundtoggle" id="soundBtn" title="開關音效" onclick="toggleSound()">🔊</button>
+
+<script>
+/* ---------- sound ---------- */
+let soundOn = true;
+let actx = null;
+function ensureCtx(){
+  if(!actx){ actx = new (window.AudioContext || window.webkitAudioContext)(); }
+  return actx;
+}
+function beep(freq, dur, type, vol){
+  if(!soundOn) return;
+  try{
+    const ctx = ensureCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.value = freq;
+    gain.gain.value = vol || 0.06;
+    osc.connect(gain); gain.connect(ctx.destination);
+    const now = ctx.currentTime;
+    gain.gain.setValueAtTime(gain.gain.value, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+    osc.start(now); osc.stop(now + dur);
+  }catch(e){}
+}
+function sfxClick(){ beep(520, .08, 'triangle', .05); }
+function sfxCorrect(){ beep(660, .12, 'sine', .07); setTimeout(()=>beep(880,.16,'sine',.06), 90); }
+function sfxWrong(){ beep(200, .22, 'sawtooth', .05); }
+function sfxOpen(){ beep(400, .07, 'sine', .04); }
+function toggleSound(){
+  soundOn = !soundOn;
+  document.getElementById('soundBtn').textContent = soundOn ? '🔊' : '🔇';
+  if(soundOn) sfxClick();
+}
+
+/* ---------- nav ---------- */
+function jump(id){ sfxClick(); document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'}); }
+
+/* ---------- tabs ---------- */
+document.getElementById('tabbar').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.tabbtn');
+  if(!btn) return;
+  sfxClick();
+  document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.tab).classList.add('active');
+});
+
+/* ---------- accordion ---------- */
+function toggleAcc(head){
+  const item = head.parentElement;
+  const body = item.querySelector('.acc-body');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i=>{
+    i.classList.remove('open');
+    i.querySelector('.acc-body').style.maxHeight = null;
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    sfxOpen();
+  } else {
+    sfxClick();
+  }
+}
+
+/* ---------- practice ---------- */
+document.getElementById('practice-text').addEventListener('click', (e)=>{
+  const span = e.target.closest('.word');
+  if(!span) return;
+  const fb = document.getElementById('practice-fb');
+  document.querySelectorAll('#practice-text .word').forEach(s=>s.classList.remove('hl'));
+  span.classList.add('hl');
+  fb.style.display = 'block';
+  if(span.dataset.type === 'direct'){
+    fb.style.color = 'var(--teal-deep)';
+    fb.textContent = '✅ 答對了！這句用「」直接引用原文，字數在 50 字以內，格式正確。';
+    sfxCorrect();
+  } else {
+    fb.style.color = 'var(--rose)';
+    fb.textContent = '這句是「間接引用」（改寫），沒有加引號，再找找看哪一句才是逐字照抄的。';
+    sfxWrong();
+  }
+});
+
+/* ---------- checklist ---------- */
+document.getElementById('checklist').addEventListener('click', (e)=>{
+  const li = e.target.closest('li');
+  if(!li) return;
+  li.classList.toggle('checked');
+  if(li.classList.contains('checked')){
+    li.querySelector('.box').textContent = '✓';
+    sfxCorrect();
+  } else {
+    li.querySelector('.box').textContent = '';
+    sfxClick();
+  }
+});
+
+/* ---------- quiz ---------- */
+const QUESTIONS = [
+  {
+    q: '小明想引用吳清山 2001 年的一段話，但是用自己的話改寫，沒有照抄原文。下列哪一種寫法最正確？',
+    opts: [
+      '「吳清山（2001）指出教育行政需要重視效能。」（不加引號、不用粗體）',
+      '吳清山（2001）指出教育行政需要重視效能。（加粗體但不加引號）',
+      '吳清山（2001）指出教育行政需要重視效能。（不加引號、不用粗體）',
+      '（教育行政需要重視效能。）（完全不標作者年代）'
+    ],
+    correct: 2,
+    explain: '間接（改寫）引用不需要加「」引號，也不用粗體，但仍要標明作者與年代。'
+  },
+  {
+    q: '一篇小論文的參考文獻中，有 5 篇文獻，其中 5 篇全部都是「網路相關資源」類型，這樣符合規定嗎？',
+    opts: [
+      '符合，只要湊到 3 篇以上就好',
+      '不符合，因為參考文獻不能全部來自網路相關資源',
+      '符合，因為網路資源查證比較方便',
+      '不符合，因為網路資源完全不能列入參考文獻'
+    ],
+    correct: 1,
+    explain: '規則要求「有效參考文獻至少 3 篇，且不得全部來自網路相關資源」，全部都是網路資源會不符合規定。'
+  },
+  {
+    q: '小華在文章附錄放了一張自己的照片作為研究者介紹，這樣可以嗎？',
+    opts: [
+      '可以，附錄不算評分內容',
+      '不可以，題目、內文或附錄都不能出現能辨識作者身分的資料',
+      '可以，只要不放在正文就沒關係',
+      '可以，因為評審不會看附錄'
+    ],
+    correct: 1,
+    explain: '為了評審公正性，題目、內文或附錄都不能出現足以辨識作者身分的資料（含作者照片），違者會被淘汰。'
+  },
+  {
+    q: '小論文的六大段落架構，正確的中文寫法順序是？',
+    opts: [
+      '前言／文獻探討／研究方法／研究分析與結果／研究結論與建議／參考文獻',
+      '摘要／前言／方法／結果／討論／參考文獻',
+      '研究方法／前言／文獻探討／結論／參考文獻／附錄',
+      '前言／參考文獻／研究方法／結果／結論'
+    ],
+    correct: 0,
+    explain: '正確順序是：壹、前言 → 貳、文獻探討 → 參、研究方法 → 肆、研究分析與結果 → 伍、研究結論與建議 → 陸、參考文獻。'
+  },
+  {
+    q: '關於 AI 工具，下列哪一個說法符合比賽規定？',
+    opts: [
+      '可以用 AI 生成整篇文章的分析與結論',
+      '可以用 AI 幫忙發想主題，但文章內容（含摘要、改寫、圖表）不能由 AI 生成',
+      '只要老師同意，就可以用 AI 生成內容',
+      '只有摘要可以用 AI 生成，其他部分不行'
+    ],
+    correct: 1,
+    explain: '規則明確說明：學生可以利用 AI 工具進行主題發想，但文章內容（含摘要、改寫、圖表等）不得以任何 AI 工具生成。'
+  }
+];
+let qIdx = 0, score = 0, answered = false;
+
+function startQuiz(){
+  qIdx = 0; score = 0; answered = false;
+  document.getElementById('quizScore').style.display = 'none';
+  document.getElementById('quizQ').parentElement.style.display = '';
+  renderQ();
+}
+function renderQ(){
+  answered = false;
+  const item = QUESTIONS[qIdx];
+  document.getElementById('quizProgress').textContent = `第 ${qIdx+1} / ${QUESTIONS.length} 題`;
+  document.getElementById('quizQ').textContent = item.q;
+  const optsWrap = document.getElementById('quizOpts');
+  optsWrap.innerHTML = '';
+  item.opts.forEach((opt, i)=>{
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = opt;
+    btn.onclick = ()=>selectOpt(i, btn);
+    optsWrap.appendChild(btn);
+  });
+  document.getElementById('quizFb').style.display = 'none';
+  document.getElementById('quizNext').style.display = 'none';
+}
+function selectOpt(i, btn){
+  if(answered) return;
+  answered = true;
+  const item = QUESTIONS[qIdx];
+  const allBtns = document.querySelectorAll('.quiz-opt');
+  allBtns.forEach((b, idx)=>{
+    if(idx === item.correct) b.classList.add('correct');
+    else if(idx === i) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('quizFb');
+  fb.style.display = 'block';
+  if(i === item.correct){
+    score++;
+    fb.style.color = 'var(--teal-deep)';
+    fb.textContent = '✅ 答對了！' + item.explain;
+    sfxCorrect();
+  } else {
+    fb.style.color = 'var(--rose)';
+    fb.textContent = '❌ 再想想。' + item.explain;
+    sfxWrong();
+  }
+  document.getElementById('quizNext').style.display = 'inline-block';
+}
+function nextQ(){
+  sfxClick();
+  qIdx++;
+  if(qIdx >= QUESTIONS.length){
+    finishQuiz();
+  } else {
+    renderQ();
+  }
+}
+function finishQuiz(){
+  document.getElementById('quizQ').parentElement.style.display = 'none';
+  document.getElementById('quizQ').style.display='none';
+  document.getElementById('quizOpts').style.display='none';
+  document.getElementById('quizFb').style.display='none';
+  document.getElementById('quizNext').style.display='none';
+  document.getElementById('quizProgress').style.display='none';
+  const scoreDiv = document.getElementById('quizScore');
+  scoreDiv.style.display = 'block';
+  document.getElementById('scoreNum').textContent = score + ' / ' + QUESTIONS.length;
+  let msg = '';
+  if(score === QUESTIONS.length) msg = '滿分！你已經完全掌握引註規則了 🎉';
+  else if(score >= QUESTIONS.length - 1) msg = '很棒！只差一點就滿分了。';
+  else if(score >= QUESTIONS.length/2) msg = '不錯，再回頭複習一下上面的內容吧！';
+  else msg = '建議再重新讀一次「內文引註」與「常見扣分」段落喔！';
+  document.getElementById('scoreMsg').textContent = msg;
+  if(score === QUESTIONS.length) sfxCorrect();
+}
+startQuiz();
+</script>
+</body>
+</html>
