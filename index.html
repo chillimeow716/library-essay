@@ -19,10 +19,11 @@
       radial-gradient(circle at 85% 85%, rgba(28,122,107,.12) 0, transparent 45%);
     font-family:"Noto Serif TC", serif; color:var(--ink); padding:32px;
   }
-  .wrap{max-width:720px; width:100%; text-align:center;}
+  .wrap{max-width:1040px; width:100%; text-align:center;}
   h1{font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:clamp(1.6rem,5vw,2.4rem); margin:0 0 10px;}
   p.sub{color:#556; margin:0 0 40px; font-size:1rem;}
-  .cards{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  @media(max-width:900px){.cards{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.cards{grid-template-columns:1fr;}}
   a.card{
     display:block; text-align:left; text-decoration:none; color:var(--ink);
@@ -35,13 +36,14 @@
   a.card p{font-family:"Noto Sans TC",sans-serif; font-size:.85rem; color:#5c6a72; margin:0;}
   a.card.a{border-color:var(--teal);}
   a.card.b{border-color:var(--indigo);}
+  a.card.c{border-color:var(--coral);}
   footer{margin-top:40px; font-family:"Noto Sans TC",sans-serif; font-size:.78rem; color:#8a92a6;}
 </style>
 </head>
 <body>
   <div class="wrap">
     <h1>📚 小論文寫作比賽教學專區</h1>
-    <p class="sub">兩份互動教學頁面，幫助你熟悉投稿規則與引註格式。</p>
+    <p class="sub">互動教學與題目探索頁面，幫助你熟悉投稿規則、引註格式，並找到研究靈感。</p>
     <div class="cards">
       <a class="card a" href="小論文引註格式教學.html">
         <div class="icon">📖</div>
@@ -52,6 +54,11 @@
         <div class="icon">🗺️</div>
         <h2>投稿全攻略</h2>
         <p>比賽資格、投稿時程、評審流程、獎勵與注意事項。</p>
+      </a>
+      <a class="card c" href="大家好奇研究什麼.html">
+        <div class="icon">🔍</div>
+        <h2>大家好奇研究什麼？</h2>
+        <p>歷屆得獎題目主題儀表板，搜尋、篩選、抽題找靈感。</p>
       </a>
     </div>
     <footer>依 115 學年度全國高級中等學校小論文寫作比賽相關文件整理製作</footer>
